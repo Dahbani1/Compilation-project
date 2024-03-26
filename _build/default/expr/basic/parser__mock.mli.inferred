@@ -1,0 +1,17 @@
+type token =
+    TIMES
+  | RPAR
+  | PLUS
+  | MOD
+  | MINUS
+  | LPAR
+  | INT of int
+  | IDENT of string
+  | EOF
+  | DIV
+val menhir_begin_marker : int
+val xv_simple_expr : Ast.expression
+val xv_expression : Ast.expression
+val xv_expr : Ast.expression
+val xv_bop : BinOp.t
+val menhir_end_marker : int

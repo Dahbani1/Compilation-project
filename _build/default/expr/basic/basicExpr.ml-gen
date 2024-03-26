@@ -1,0 +1,18 @@
+(** @canonical BasicExpr.Ast *)
+module Ast = BasicExpr__Ast
+
+
+(** @canonical BasicExpr.Eval *)
+module Eval = BasicExpr__Eval
+
+
+(** @canonical BasicExpr.Lexer *)
+module Lexer = BasicExpr__Lexer
+
+
+(** @canonical BasicExpr.Parser *)
+module Parser = BasicExpr__Parser
+
+
+(** @canonical BasicExpr.ToPfx *)
+module ToPfx = BasicExpr__ToPfx
