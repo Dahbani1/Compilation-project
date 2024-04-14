@@ -1,10 +1,10 @@
 # dune build
 # OCAMLPARAM: unset
 # Workspace root: /home/dahbanimed/LALOG/Dahbani_Ezzakri/Compilation-project
-$ /usr/bin/nproc > /tmp/dune03d424.output 2> /dev/null
+$ /usr/bin/nproc > /tmp/dune198301.output 2> /dev/null
 # Auto-detected concurrency: 16
 # disable binary cache
-$ /usr/bin/ocamlc.opt -config > /tmp/dunede5f0d.output
+$ /usr/bin/ocamlc.opt -config > /tmp/dune1de363.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -156,30 +156,11 @@ $ /usr/bin/ocamlc.opt -config > /tmp/dunede5f0d.output
 #      ; windows_unicode = false
 #      }
 #  }
-$ (cd _build/default && /usr/bin/ocamldep.opt -modules -impl pfx/basic/eval.ml) > _build/default/pfx/basic/.basicPfx.objs/eval.ml.d
-$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I pfx/basic/.basicPfx.objs/byte -I pfx/basic/.basicPfx.objs/native -I utils/.utils.objs/byte -I utils/.utils.objs/native -intf-suffix .ml -no-alias-deps -opaque -open BasicPfx -o pfx/basic/.basicPfx.objs/native/basicPfx__Ast.cmx -c -impl pfx/basic/ast.ml)
-> File "pfx/basic/ast.ml", line 22, characters 4-7:
-> 22 |   | Int i -> string_of_int i
->          ^^^
-> Error: Unbound constructor Int
-[2]
-$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I pfx/basic/.basicPfx.objs/byte -I utils/.utils.objs/byte -intf-suffix .ml -no-alias-deps -opaque -open BasicPfx -o pfx/basic/.basicPfx.objs/byte/basicPfx__Ast.cmo -c -impl pfx/basic/ast.ml)
-> File "pfx/basic/ast.ml", line 22, characters 4-7:
-> 22 |   | Int i -> string_of_int i
->          ^^^
-> Error: Unbound constructor Int
-[2]
-$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I pfx/basic/.basicPfx.objs/byte -I utils/.utils.objs/byte -intf-suffix .ml -no-alias-deps -opaque -open BasicPfx -o pfx/basic/.basicPfx.objs/byte/basicPfx__Eval.cmo -c -impl pfx/basic/eval.ml)
-> File "pfx/basic/eval.ml", line 34, characters 37-70:
-> 34 |              | Div -> if i2 = 0 then Error ("Division by zero", state) else Ok (rest, i1 / i2 :: stack')
->                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-> Error: This expression has type ('a, 'b) result
->        but an expression was expected of type int
-[2]
-$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I pfx/basic/.basicPfx.objs/byte -I pfx/basic/.basicPfx.objs/native -I utils/.utils.objs/byte -I utils/.utils.objs/native -intf-suffix .ml -no-alias-deps -opaque -open BasicPfx -o pfx/basic/.basicPfx.objs/native/basicPfx__Eval.cmx -c -impl pfx/basic/eval.ml)
-> File "pfx/basic/eval.ml", line 34, characters 37-70:
-> 34 |              | Div -> if i2 = 0 then Error ("Division by zero", state) else Ok (rest, i1 / i2 :: stack')
->                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-> Error: This expression has type ('a, 'b) result
->        but an expression was expected of type int
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I pfx/.pfxVM.eobjs/byte -I pfx/basic/.basicPfx.objs/byte -I utils/.utils.objs/byte -no-alias-deps -opaque -o pfx/.pfxVM.eobjs/byte/dune__exe__PfxVM.cmo -c -impl pfx/pfxVM.ml)
+> File "pfx/pfxVM.ml", line 16, characters 38-49:
+> 16 |         let pfx_prog = Parser.program Lexer.token lexbuf in
+>                                            ^^^^^^^^^^^
+> Error: This expression has type Lexing.lexbuf -> Lexer.token
+>        but an expression was expected of type Lexing.lexbuf -> Parser.token
+>        Type Lexer.token is not compatible with type Parser.token 
 [2]

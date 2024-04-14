@@ -1,4 +1,6 @@
-type token = INT of int | EOF
+type token = SUB | PUSH | POP | MUL | MOD | INT of int | EOF | DIV | ADD
 val menhir_begin_marker : int
 val xv_program : Ast.program
+val xv_command_list : Ast.command list
+val xv_command : Ast.command
 val menhir_end_marker : int

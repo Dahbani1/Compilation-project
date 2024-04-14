@@ -5,22 +5,20 @@ type operator =
   | Div
   | Mod
 
+
 type command =
 | Push of int
 | Pop
-| Peek
 | Swap
-| Exec
+| Peek
 | Operate of operator
 
 
 
-type program = int * command list
+type program = int * command list 
 
 (* add here all useful functions and types  related to the AST: for instance  string_of_ functions *)
-let string_of_operand = function
-  | Int i -> string_of_int i
-  | Var v -> v
+
 
 let string_of_operator = function
   | Add -> "Add"
@@ -30,11 +28,10 @@ let string_of_operator = function
   | Mod -> "Mod"
 
 let string_of_command = function
-  | Push op -> "Push" ^ (string_of_operand op)
+  | Push op -> "Push" ^ (string_of_int op)
   | Pop -> "Pop"
-  | Peek -> "Peek"
   | Swap -> "Swap"
-  | Exec -> "Exec"
+  | Peek -> "Peek"
   | Operate op -> "Operate" ^ (string_of_operator op)
 
 let string_of_commands cmds = String.concat " " (List.map string_of_command cmds)

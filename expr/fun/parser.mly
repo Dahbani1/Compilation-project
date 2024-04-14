@@ -42,4 +42,7 @@ simple_expr:
   | DIV       { Bdiv }
   | MOD       { Bmod }
 
+command :
+  | lexbuf=EXEC {EXEC(lexbuf)}
+  | lexbuf=GET { GET(lexbuf)}
 %%

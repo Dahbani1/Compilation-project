@@ -13,7 +13,6 @@ let string_of_state (cmds,stack) =
 let step state =
   match state with
   | [], _ -> Error ("Nothing to step",state)
-  (* Valid configurations *)
   | Push op :: rest, stack -> Ok (rest, op :: stack)
   | Pop :: rest, stack ->
       (match stack with
@@ -22,18 +21,31 @@ let step state =
   | Swap :: rest, stack ->
       (match stack with
        | op1 :: op2 :: stack' -> Ok (rest, op2 :: op1 :: stack')
-       | _ -> Error ("Swap with less than two elements", state))
+       | _ -> Error("Swap with less than two elements", state))
+  | Peek :: rest, stack ->
+      (match stack with
+        | [] -> Error ("Stack is empty", state)
+        | x :: stack' -> Ok (rest, x :: stack'))
   | Operate op :: rest, stack ->
       (match stack with
        |  i1 ::  i2 :: stack' ->
            let result = 
              (match op with
-             | Add -> i1 + i2
-             | Sub -> i1 - i2
-             | Mul -> i1 * i2
-             | Div -> if i2 = 0 then Error ("Division by zero", state) else Ok (rest, i1 / i2 :: stack')
-             | Mod -> if i2 = 0 then Error ("Division by zero", state) else Ok (rest, i1 % i2 :: stack'))
+             | Add -> Ok (rest, (i1 + i2) :: stack)
+             | Sub -> Ok (rest, (i1 - i2) :: stack)
+             | Mul -> Ok (rest, (i2 * i1) :: stack)
+             | Div -> 
+              if i2 = 0 then 
+                Error("Division by zero", state) 
+              else 
+                Ok (rest, i1 / i2 :: stack')
+             | Mod -> 
+              if i2 = 0 then 
+                Error("Division by zero", state) 
+              else 
+                Ok (rest, i1 mod i2 :: stack'))
            in result
+       | _::[] -> Error ("Not enough integers on the stack", state)
        | [] -> Error ("Operate on non-integers", state))
 
 let eval_program (numargs, cmds) args =

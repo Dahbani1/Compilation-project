@@ -9,9 +9,8 @@ type operator =
 type command =
 | Push of int
 | Pop
-| Peek
 | Swap
-| Exec
+| Peek
 | Operate of operator
   
 
