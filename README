@@ -106,29 +106,22 @@ project
 Progress
 --------
 
-- We stopped at question 10.1 (proof of derivation)
-- There is still a bug in question 8.3 (new version of generate function)
-- …
+- All of the exercices up to 8 were done successfully (inclusing compilation and tests)
+- exercices 9 to 11 were done but without being tested: we couldn't figure out how to run tests for the lamnda expressions (i.e ((λx.λy.(x − y)) 12) 8 ...)
 
 ===============
 
 Know bugs and issues
 --------------------
 
-- We were not able to manage xxx…
-- Compiler fails when xxx…
-- …
+- We were not able to run tests for the lamnda expressions (i.e ((λx.λy.(x − y)) 12) 8 ...) in exercies 9 to 11
 
 ===============
 
 Helpful resources
 -----------------
 
-- we used Stack Overflow to solve the problem of xxx :
-  https://stackoverflow/xxxxxxi
-  https://stackoverflow/yyyyyy
-- someone on GitHub provided an interesting example very similar to the answer of the question x.y : https://github.com/xxxx
-- …
+- Most of the time, we used stackoverflow to look for solution of some n=bugs we encountered.
 
 ===============
 
