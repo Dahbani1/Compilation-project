@@ -2,6 +2,7 @@
 (* The type of tokens. *)
 
 type token = 
+  | SWAP
   | SUB
   | PUSH of (int)
   | POP

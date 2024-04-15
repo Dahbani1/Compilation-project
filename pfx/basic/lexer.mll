@@ -2,11 +2,12 @@
   open Parser 
 
   (* type token =
-    | PUSH of int | POP | ADD | SUB | MUL | DIV | MOD | INT of int | EOF *)
+    | PUSH of int | POP | SWAP | ADD | SUB | MUL | DIV | MOD | INT of int | EOF *)
 
   let print_token = function
     | PUSH n -> print_string ("PUSH " ^ string_of_int n)
     | POP -> print_string "POP"
+    | SWAP -> print_string "SWAP"
     | ADD -> print_string "ADD"
     | SUB -> print_string "SUB"
     | MUL -> print_string "MUL"
@@ -59,6 +60,7 @@ rule token = parse
   (* commands  *)
   | "push " + (digit+ as nb)  {mk_push (Utils.Location.symbol_loc (Lexing.lexeme_start_p lexbuf) (Lexing.lexeme_end_p lexbuf)) nb  }
   | "pop"     { POP }
+  | "swap"    { SWAP }
   | "add"     { ADD }
   | "sub"     { SUB }
   | "mul"     { MUL }

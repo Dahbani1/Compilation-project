@@ -12,6 +12,7 @@
 %token <int> INT
 %token <int> PUSH                  (* Push command *)
 %token POP                  (* Pop command *)
+%token SWAP                 (* Swap command *)
 %token ADD                  (* Add command *)
 %token SUB                  (* Subtract command *)
 %token MUL                  (* Multiply command *)
@@ -44,6 +45,7 @@ command_list:
 command:
   | PUSH INT { Push $2 }
   | POP      { Pop }
+  | SWAP     { Swap }
   | ADD      { Operate Add }
   | SUB      { Operate Sub }
   | MUL      { Operate Mul }

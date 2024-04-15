@@ -1,5 +1,6 @@
 type token =
-    SUB
+    SWAP
+  | SUB
   | PUSH of int
   | POP
   | MUL
