@@ -96,7 +96,7 @@ Progress
 --------
 
 - All of the exercices up to 8 were done successfully (inclusing compilation and tests)
-- exercices 9 to 11 were done but without being tested: we couldn't figure out how to run tests for the lamnda expressions (i.e ((λx.λy.(x − y)) 12) 8 ...)
+- Exercices 9 to 12 were done but without being tested: we couldn't figure out how to run tests for the lambda expressions (i.e ((λx.λy.(x − y)) 12) 8 ...)
 
 ===============
 
@@ -111,6 +111,7 @@ Helpful resources
 -----------------
 
 - Most of the time, we used stackoverflow to look for solution of some n=bugs we encountered.
+- Compilation - Notes provided on Moodle were really helpful.
 
 ===============
 
@@ -120,4 +121,5 @@ Difficulties
 - Figuring out how to translate coding instructions to a new programming language we are not used to
 - Using new tools and new commands to compile the script and make it work
 - Code in a new environment and a new paradigm
+- Testing the code using utop, but we figure it out in the end.
 
