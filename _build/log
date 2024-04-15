@@ -1,10 +1,10 @@
-# dune build
+# dune exec expr/main.exe -- expr/basic/tests/an_example.expr
 # OCAMLPARAM: unset
 # Workspace root: /home/dahbanimed/LALOG/Dahbani_Ezzakri/Compilation-project
-$ /usr/bin/nproc > /tmp/dune88727b.output 2> /dev/null
+$ /usr/bin/nproc > /tmp/dune9a5f73.output 2> /dev/null
 # Auto-detected concurrency: 16
 # disable binary cache
-$ /usr/bin/ocamlc.opt -config > /tmp/dune93b35e.output
+$ /usr/bin/ocamlc.opt -config > /tmp/dune6594bb.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -156,3 +156,4 @@ $ /usr/bin/ocamlc.opt -config > /tmp/dune93b35e.output
 #      ; windows_unicode = false
 #      }
 #  }
+# Workspace root: /home/dahbanimed/LALOG/Dahbani_Ezzakri/Compilation-project

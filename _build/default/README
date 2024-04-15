@@ -17,6 +17,7 @@ Sources
 -------
 
 Git repository: https://github.com/Dahbani1/Compilation-project
+A pdf containing answers to the non-code-related questions.
 
 ===============
 
@@ -76,13 +77,13 @@ project
 │   └── main.ml
 ├── pfx: the pfx VM
 │   ├── basic
-│   │   ├── ast.ml               <- To edit
+│   │   ├── ast.ml               
 │   │   ├── ast.mli
 │   │   ├── dune
-│   │   ├── eval.ml              <- To edit
+│   │   ├── eval.ml              
 │   │   ├── eval.mli
-│   │   ├── lexer.mll            <- To edit
-│   │   ├── parser.mly           <- To edit
+│   │   ├── lexer.mll            
+│   │   ├── parser.mly           
 │   │   └── tests: for tests
 │   │       └── ok_prog.pfx
 │   └── pfxVM.ml: main file for the pfx VM
@@ -122,4 +123,5 @@ Difficulties
 - Using new tools and new commands to compile the script and make it work
 - Code in a new environment and a new paradigm
 - Testing the code using utop, but we figure it out in the end.
+- Testing in section 10.
 
