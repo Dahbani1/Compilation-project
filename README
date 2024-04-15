@@ -1,28 +1,22 @@
 AUTHORS
 -------
 
-- NAME1
-- NAME2
-…
+- DAHBANI Mohammed
+- EZZAKRI Anas
 
 ===============
 
 Description of the project
 --------------------------
 
-This μ-project is a very simple compiler…
+This project implements a working Expr compiler and a Pfx virtual machine in OCaml. The work progresses incrementally, with questions guiding the development of both the compiler and virtual machine.
 
 ===============
 
 Sources
 -------
 
-Git repository: https://redmine-df.telecom-bretagne.eu/git/PROJECTNAME
-
-(obviously, you _will_ use a version control system such as Git, IMT
-Atlantique provides a project management platform: use it!)
-
-Release : tag 1.0 or commit acdeacdacdacdacd
+Git repository: https://github.com/Dahbani1/Compilation-project
 
 ===============
 
@@ -50,11 +44,6 @@ Structure of the project
 ------------------------
 
 The project is organized as following:
-
-Explain here the organization of your project, what is the use of each file or
-group of files, etc.
-
-You may also show the file tree as the following example:
 
 project
 ├── README
@@ -106,39 +95,31 @@ project
 Progress
 --------
 
-- We stopped at question 10.1 (proof of derivation)
-- There is still a bug in question 8.3 (new version of generate function)
-- …
+- All of the exercices up to 8 were done successfully (inclusing compilation and tests)
+- Exercices 9 to 12 were done but without being tested: we couldn't figure out how to run tests for the lambda expressions (i.e ((λx.λy.(x − y)) 12) 8 ...)
 
 ===============
 
 Know bugs and issues
 --------------------
 
-- We were not able to manage xxx…
-- Compiler fails when xxx…
-- …
+- We were not able to run tests for the lamnda expressions (i.e ((λx.λy.(x − y)) 12) 8 ...) in exercies 9 to 11
 
 ===============
 
 Helpful resources
 -----------------
 
-- we used Stack Overflow to solve the problem of xxx :
-  https://stackoverflow/xxxxxxi
-  https://stackoverflow/yyyyyy
-- someone on GitHub provided an interesting example very similar to the answer of the question x.y : https://github.com/xxxx
-- …
+- Most of the time, we used stackoverflow to look for solution of some n=bugs we encountered.
+- Compilation - Notes provided on Moodle were really helpful.
 
 ===============
 
 Difficulties
 ------------
 
-- team programming: having to use a VCS such as git and avoiding conflicts
-- thinking functional
-- changing habits by using an unknown language
-- Not a single difficulty: the project was so easy that my 8-old brother did it
-  completely; the Ocaml language is so nice I enjoyed the project, …
-- …
+- Figuring out how to translate coding instructions to a new programming language we are not used to
+- Using new tools and new commands to compile the script and make it work
+- Code in a new environment and a new paradigm
+- Testing the code using utop, but we figure it out in the end.
 
