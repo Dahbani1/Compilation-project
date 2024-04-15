@@ -76,13 +76,13 @@ project
 │   └── main.ml
 ├── pfx: the pfx VM
 │   ├── basic
-│   │   ├── ast.ml               <- To edit
+│   │   ├── ast.ml               
 │   │   ├── ast.mli
 │   │   ├── dune
-│   │   ├── eval.ml              <- To edit
+│   │   ├── eval.ml              
 │   │   ├── eval.mli
-│   │   ├── lexer.mll            <- To edit
-│   │   ├── parser.mly           <- To edit
+│   │   ├── lexer.mll            
+│   │   ├── parser.mly           
 │   │   └── tests: for tests
 │   │       └── ok_prog.pfx
 │   └── pfxVM.ml: main file for the pfx VM
