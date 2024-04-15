@@ -3,7 +3,7 @@
 
 type token = 
   | SUB
-  | PUSH
+  | PUSH of (int)
   | POP
   | MUL
   | MOD

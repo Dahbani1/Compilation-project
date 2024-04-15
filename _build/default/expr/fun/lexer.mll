@@ -41,5 +41,9 @@ rule token = parse
   | ident as id { IDENT id }
   (* illegal characters *)
   | _ as c  { raise (Location.Error(Printf.sprintf "Illegal character '%c': " c, Location.curr lexbuf)) }
-
+  | "exec" {EXEC(lexbuf)}
+  | "get" { GET(lexbuf)}
+  | "let" { LET }
+  | "=" { EQUAL }
+  | "in" { IN }
 

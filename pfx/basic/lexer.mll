@@ -1,8 +1,8 @@
 {
-  open Utils.Location
+  open Parser 
 
-  type token =
-    | PUSH of int | POP | ADD | SUB | MUL | DIV | MOD | INT of int | EOF
+  (* type token =
+    | PUSH of int | POP | ADD | SUB | MUL | DIV | MOD | INT of int | EOF *)
 
   let print_token = function
     | PUSH n -> print_string ("PUSH " ^ string_of_int n)
@@ -15,6 +15,8 @@
     | EOF -> print_string "EOF"
     | INT i -> print_int i
 
+  
+
 
   (* let mk_int nb =
     try INT (int_of_string nb)
@@ -24,15 +26,19 @@
     try PUSH (int_of_string nb)
     with Failure _ -> failwith (Printf.sprintf "Illegal push operation '%s': " nb ) *)
 
+  (* Exercice 7: Locations *)
+
   let mk_int loc nb =
     try INT (int_of_string nb)
-    with Failure _ -> raise (Error (Printf.sprintf "Illegal integer '%s': " nb, loc))
+    with Failure _ -> raise (Utils.Location.Error (Printf.sprintf "Illegal integer '%s': " nb, loc))
 
   let mk_push loc nb =
     try PUSH (int_of_string nb)
-    with Failure _ -> raise (Error (Printf.sprintf "Illegal push operation '%s': " nb, loc))
+    with Failure _ -> raise (Utils.Location.Error (Printf.sprintf "Illegal push operation '%s': " nb, loc))
+
     
 }
+
 
 let newline = (['\n' '\r'] | "\r\n")
 let blank = [' ' '\014' '\t' '\012']
@@ -49,9 +55,9 @@ rule token = parse
   (* comments *)
   | "--" not_newline_char*  { token lexbuf }
   (* integers *)
-  | digit+ as nb            { mk_int (symbol_loc (Lexing.lexeme_start_p lexbuf) (Lexing.lexeme_end_p lexbuf)) nb }
+  | digit+ as nb            { mk_int (Utils.Location.symbol_loc (Lexing.lexeme_start_p lexbuf) (Lexing.lexeme_end_p lexbuf)) nb }
   (* commands  *)
-  | "push " + (digit+ as nb)  { mk_push (symbol_loc (Lexing.lexeme_start_p lexbuf) (Lexing.lexeme_end_p lexbuf)) nb  }
+  | "push " + (digit+ as nb)  {mk_push (Utils.Location.symbol_loc (Lexing.lexeme_start_p lexbuf) (Lexing.lexeme_end_p lexbuf)) nb  }
   | "pop"     { POP }
   | "add"     { ADD }
   | "sub"     { SUB }

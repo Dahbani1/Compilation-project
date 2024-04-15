@@ -10,7 +10,7 @@
 (* enter tokens here, they should begin with %token *)
 %token EOF
 %token <int> INT
-%token PUSH                 (* Push command *)
+%token <int> PUSH                  (* Push command *)
 %token POP                  (* Pop command *)
 %token ADD                  (* Add command *)
 %token SUB                  (* Subtract command *)

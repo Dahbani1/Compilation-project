@@ -1,10 +1,10 @@
-# dune build
+# dune exec expr/compiler.exe -- expr/basic/tests/an_example.expr
 # OCAMLPARAM: unset
 # Workspace root: /home/dahbanimed/LALOG/Dahbani_Ezzakri/Compilation-project
-$ /usr/bin/nproc > /tmp/dune198301.output 2> /dev/null
+$ /usr/bin/nproc > /tmp/dune16cea6.output 2> /dev/null
 # Auto-detected concurrency: 16
 # disable binary cache
-$ /usr/bin/ocamlc.opt -config > /tmp/dune1de363.output
+$ /usr/bin/ocamlc.opt -config > /tmp/dune36d28f.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -156,11 +156,4 @@ $ /usr/bin/ocamlc.opt -config > /tmp/dune1de363.output
 #      ; windows_unicode = false
 #      }
 #  }
-$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I pfx/.pfxVM.eobjs/byte -I pfx/basic/.basicPfx.objs/byte -I utils/.utils.objs/byte -no-alias-deps -opaque -o pfx/.pfxVM.eobjs/byte/dune__exe__PfxVM.cmo -c -impl pfx/pfxVM.ml)
-> File "pfx/pfxVM.ml", line 16, characters 38-49:
-> 16 |         let pfx_prog = Parser.program Lexer.token lexbuf in
->                                            ^^^^^^^^^^^
-> Error: This expression has type Lexing.lexbuf -> Lexer.token
->        but an expression was expected of type Lexing.lexbuf -> Parser.token
->        Type Lexer.token is not compatible with type Parser.token 
-[2]
+# Workspace root: /home/dahbanimed/LALOG/Dahbani_Ezzakri/Compilation-project

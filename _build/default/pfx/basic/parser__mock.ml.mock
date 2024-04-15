@@ -1,14 +1,18 @@
 
 type token = 
   | SUB
-  | PUSH
+  | PUSH of (
+# 13 "pfx/basic/parser.mly"
+       (int)
+# 8 "pfx/basic/parser__mock.ml.mock"
+)
   | POP
   | MUL
   | MOD
   | INT of (
 # 12 "pfx/basic/parser.mly"
        (int)
-# 12 "pfx/basic/parser__mock.ml.mock"
+# 16 "pfx/basic/parser__mock.ml.mock"
 )
   | EOF
   | DIV
@@ -19,7 +23,7 @@ type token =
  open Ast
 
 
-# 23 "pfx/basic/parser__mock.ml.mock"
+# 27 "pfx/basic/parser__mock.ml.mock"
 
 let menhir_begin_marker =
   0
@@ -28,126 +32,130 @@ and (xv_program, xv_command_list, xv_command) =
   let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
 # 37 "pfx/basic/parser.mly"
                     _3
-# 32 "pfx/basic/parser__mock.ml.mock"
+# 36 "pfx/basic/parser__mock.ml.mock"
    : unit) (_startpos__3_ : Lexing.position) (_endpos__3_ : Lexing.position) (_startofs__3_ : int) (_endofs__3_ : int) (_loc__3_ : Lexing.position * Lexing.position) (
 # 37 "pfx/basic/parser.mly"
        _2
-# 36 "pfx/basic/parser__mock.ml.mock"
+# 40 "pfx/basic/parser__mock.ml.mock"
    : 'tv_command_list) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
 # 37 "pfx/basic/parser.mly"
    _1
-# 40 "pfx/basic/parser__mock.ml.mock"
+# 44 "pfx/basic/parser__mock.ml.mock"
    : (
 # 12 "pfx/basic/parser.mly"
        (int)
-# 44 "pfx/basic/parser__mock.ml.mock"
+# 48 "pfx/basic/parser__mock.ml.mock"
   )) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) ->
     ((
 # 37 "pfx/basic/parser.mly"
                          ( _1, _2 )
-# 49 "pfx/basic/parser__mock.ml.mock"
+# 53 "pfx/basic/parser__mock.ml.mock"
      : 'tv_program) : (
 # 26 "pfx/basic/parser.mly"
        (Ast.program)
-# 53 "pfx/basic/parser__mock.ml.mock"
+# 57 "pfx/basic/parser__mock.ml.mock"
     )) in
   let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
 # 42 "pfx/basic/parser.mly"
            _2
-# 58 "pfx/basic/parser__mock.ml.mock"
+# 62 "pfx/basic/parser__mock.ml.mock"
    : 'tv_command_list) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
 # 42 "pfx/basic/parser.mly"
    _1
-# 62 "pfx/basic/parser__mock.ml.mock"
+# 66 "pfx/basic/parser__mock.ml.mock"
    : 'tv_command) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) ->
     (
 # 42 "pfx/basic/parser.mly"
                          ( _1 :: _2 )
-# 67 "pfx/basic/parser__mock.ml.mock"
+# 71 "pfx/basic/parser__mock.ml.mock"
      : 'tv_command_list) in
   let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) ->
     (
 # 41 "pfx/basic/parser.mly"
                 ( [] )
-# 73 "pfx/basic/parser__mock.ml.mock"
+# 77 "pfx/basic/parser__mock.ml.mock"
      : 'tv_command_list) in
   let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
 # 51 "pfx/basic/parser.mly"
    _1
-# 78 "pfx/basic/parser__mock.ml.mock"
+# 82 "pfx/basic/parser__mock.ml.mock"
    : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) ->
     (
 # 51 "pfx/basic/parser.mly"
              ( Operate Mod )
-# 83 "pfx/basic/parser__mock.ml.mock"
+# 87 "pfx/basic/parser__mock.ml.mock"
      : 'tv_command) in
   let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
 # 50 "pfx/basic/parser.mly"
    _1
-# 88 "pfx/basic/parser__mock.ml.mock"
+# 92 "pfx/basic/parser__mock.ml.mock"
    : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) ->
     (
 # 50 "pfx/basic/parser.mly"
              ( Operate Div )
-# 93 "pfx/basic/parser__mock.ml.mock"
+# 97 "pfx/basic/parser__mock.ml.mock"
      : 'tv_command) in
   let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
 # 49 "pfx/basic/parser.mly"
    _1
-# 98 "pfx/basic/parser__mock.ml.mock"
+# 102 "pfx/basic/parser__mock.ml.mock"
    : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) ->
     (
 # 49 "pfx/basic/parser.mly"
              ( Operate Mul )
-# 103 "pfx/basic/parser__mock.ml.mock"
+# 107 "pfx/basic/parser__mock.ml.mock"
      : 'tv_command) in
   let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
 # 48 "pfx/basic/parser.mly"
    _1
-# 108 "pfx/basic/parser__mock.ml.mock"
+# 112 "pfx/basic/parser__mock.ml.mock"
    : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) ->
     (
 # 48 "pfx/basic/parser.mly"
              ( Operate Sub )
-# 113 "pfx/basic/parser__mock.ml.mock"
+# 117 "pfx/basic/parser__mock.ml.mock"
      : 'tv_command) in
   let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
 # 47 "pfx/basic/parser.mly"
    _1
-# 118 "pfx/basic/parser__mock.ml.mock"
+# 122 "pfx/basic/parser__mock.ml.mock"
    : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) ->
     (
 # 47 "pfx/basic/parser.mly"
              ( Operate Add )
-# 123 "pfx/basic/parser__mock.ml.mock"
+# 127 "pfx/basic/parser__mock.ml.mock"
      : 'tv_command) in
   let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
 # 46 "pfx/basic/parser.mly"
    _1
-# 128 "pfx/basic/parser__mock.ml.mock"
+# 132 "pfx/basic/parser__mock.ml.mock"
    : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) ->
     (
 # 46 "pfx/basic/parser.mly"
              ( Pop )
-# 133 "pfx/basic/parser__mock.ml.mock"
+# 137 "pfx/basic/parser__mock.ml.mock"
      : 'tv_command) in
   let _ = fun (_eRR : exn) (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
 # 45 "pfx/basic/parser.mly"
         _2
-# 138 "pfx/basic/parser__mock.ml.mock"
+# 142 "pfx/basic/parser__mock.ml.mock"
    : (
 # 12 "pfx/basic/parser.mly"
        (int)
-# 142 "pfx/basic/parser__mock.ml.mock"
+# 146 "pfx/basic/parser__mock.ml.mock"
   )) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
 # 45 "pfx/basic/parser.mly"
    _1
-# 146 "pfx/basic/parser__mock.ml.mock"
-   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) ->
+# 150 "pfx/basic/parser__mock.ml.mock"
+   : (
+# 13 "pfx/basic/parser.mly"
+       (int)
+# 154 "pfx/basic/parser__mock.ml.mock"
+  )) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) ->
     (
 # 45 "pfx/basic/parser.mly"
              ( Push _2 )
-# 151 "pfx/basic/parser__mock.ml.mock"
+# 159 "pfx/basic/parser__mock.ml.mock"
      : 'tv_command) in
   (raise Not_found : 'tv_program * 'tv_command_list * 'tv_command)
 
@@ -157,9 +165,9 @@ and menhir_end_marker =
 # 52 "pfx/basic/parser.mly"
   
 
-# 161 "pfx/basic/parser__mock.ml.mock"
+# 169 "pfx/basic/parser__mock.ml.mock"
 
 # 269 "<standard.mly>"
   
 
-# 166 "pfx/basic/parser__mock.ml.mock"
+# 174 "pfx/basic/parser__mock.ml.mock"

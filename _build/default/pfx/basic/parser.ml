@@ -8,14 +8,18 @@ module MenhirBasics = struct
   
   type token = 
     | SUB
-    | PUSH
+    | PUSH of (
+# 13 "pfx/basic/parser.mly"
+       (int)
+# 15 "pfx/basic/parser.ml"
+  )
     | POP
     | MUL
     | MOD
     | INT of (
 # 12 "pfx/basic/parser.mly"
        (int)
-# 19 "pfx/basic/parser.ml"
+# 23 "pfx/basic/parser.ml"
   )
     | EOF
     | DIV
@@ -41,7 +45,7 @@ and _menhir_state =
  open Ast
 
 
-# 45 "pfx/basic/parser.ml"
+# 49 "pfx/basic/parser.ml"
 
 let rec _menhir_goto_command_list : _menhir_env -> 'ttv_tail -> _menhir_state -> (Ast.command list) -> 'ttv_return =
   fun _menhir_env _menhir_stack _menhir_s _v ->
@@ -58,12 +62,12 @@ let rec _menhir_goto_command_list : _menhir_env -> 'ttv_tail -> _menhir_state ->
             let ((_menhir_stack, (_1 : (
 # 12 "pfx/basic/parser.mly"
        (int)
-# 62 "pfx/basic/parser.ml"
+# 66 "pfx/basic/parser.ml"
             ))), _, (_2 : (Ast.command list))) = _menhir_stack in
             let _v : (Ast.program) = 
 # 37 "pfx/basic/parser.mly"
                          ( _1, _2 )
-# 67 "pfx/basic/parser.ml"
+# 71 "pfx/basic/parser.ml"
              in
             let _menhir_stack = Obj.magic _menhir_stack in
             let _menhir_stack = Obj.magic _menhir_stack in
@@ -82,7 +86,7 @@ let rec _menhir_goto_command_list : _menhir_env -> 'ttv_tail -> _menhir_state ->
         let _v : (Ast.command list) = 
 # 42 "pfx/basic/parser.mly"
                          ( _1 :: _2 )
-# 86 "pfx/basic/parser.ml"
+# 90 "pfx/basic/parser.ml"
          in
         _menhir_goto_command_list _menhir_env _menhir_stack _menhir_s _v
 
@@ -103,8 +107,8 @@ and _menhir_goto_command : _menhir_env -> 'ttv_tail -> _menhir_state -> (Ast.com
         _menhir_run6 _menhir_env (Obj.magic _menhir_stack) MenhirState12
     | POP ->
         _menhir_run5 _menhir_env (Obj.magic _menhir_stack) MenhirState12
-    | PUSH ->
-        _menhir_run3 _menhir_env (Obj.magic _menhir_stack) MenhirState12
+    | PUSH _v ->
+        _menhir_run3 _menhir_env (Obj.magic _menhir_stack) MenhirState12 _v
     | SUB ->
         _menhir_run2 _menhir_env (Obj.magic _menhir_stack) MenhirState12
     | EOF ->
@@ -130,7 +134,7 @@ and _menhir_reduce8 : _menhir_env -> 'ttv_tail -> _menhir_state -> 'ttv_return =
     let _v : (Ast.command list) = 
 # 41 "pfx/basic/parser.mly"
                 ( [] )
-# 134 "pfx/basic/parser.ml"
+# 138 "pfx/basic/parser.ml"
      in
     _menhir_goto_command_list _menhir_env _menhir_stack _menhir_s _v
 
@@ -141,13 +145,17 @@ and _menhir_run2 : _menhir_env -> 'ttv_tail -> _menhir_state -> 'ttv_return =
     let _v : (Ast.command) = 
 # 48 "pfx/basic/parser.mly"
              ( Operate Sub )
-# 145 "pfx/basic/parser.ml"
+# 149 "pfx/basic/parser.ml"
      in
     _menhir_goto_command _menhir_env _menhir_stack _menhir_s _v
 
-and _menhir_run3 : _menhir_env -> 'ttv_tail -> _menhir_state -> 'ttv_return =
-  fun _menhir_env _menhir_stack _menhir_s ->
-    let _menhir_stack = (_menhir_stack, _menhir_s) in
+and _menhir_run3 : _menhir_env -> 'ttv_tail -> _menhir_state -> (
+# 13 "pfx/basic/parser.mly"
+       (int)
+# 156 "pfx/basic/parser.ml"
+) -> 'ttv_return =
+  fun _menhir_env _menhir_stack _menhir_s _v ->
+    let _menhir_stack = (_menhir_stack, _menhir_s, _v) in
     let _menhir_env = _menhir_discard _menhir_env in
     let _tok = _menhir_env._menhir_token in
     match _tok with
@@ -158,20 +166,20 @@ and _menhir_run3 : _menhir_env -> 'ttv_tail -> _menhir_state -> 'ttv_return =
         let (_2 : (
 # 12 "pfx/basic/parser.mly"
        (int)
-# 162 "pfx/basic/parser.ml"
+# 170 "pfx/basic/parser.ml"
         )) = _v in
-        let (_menhir_stack, _menhir_s) = _menhir_stack in
+        let (_menhir_stack, _menhir_s, _) = _menhir_stack in
         let _v : (Ast.command) = 
 # 45 "pfx/basic/parser.mly"
              ( Push _2 )
-# 168 "pfx/basic/parser.ml"
+# 176 "pfx/basic/parser.ml"
          in
         _menhir_goto_command _menhir_env _menhir_stack _menhir_s _v
     | _ ->
         assert (not _menhir_env._menhir_error);
         _menhir_env._menhir_error <- true;
         let _menhir_stack = Obj.magic _menhir_stack in
-        let (_menhir_stack, _menhir_s) = _menhir_stack in
+        let (_menhir_stack, _menhir_s, _) = _menhir_stack in
         _menhir_errorcase _menhir_env (Obj.magic _menhir_stack) _menhir_s
 
 and _menhir_run5 : _menhir_env -> 'ttv_tail -> _menhir_state -> 'ttv_return =
@@ -181,7 +189,7 @@ and _menhir_run5 : _menhir_env -> 'ttv_tail -> _menhir_state -> 'ttv_return =
     let _v : (Ast.command) = 
 # 46 "pfx/basic/parser.mly"
              ( Pop )
-# 185 "pfx/basic/parser.ml"
+# 193 "pfx/basic/parser.ml"
      in
     _menhir_goto_command _menhir_env _menhir_stack _menhir_s _v
 
@@ -192,7 +200,7 @@ and _menhir_run6 : _menhir_env -> 'ttv_tail -> _menhir_state -> 'ttv_return =
     let _v : (Ast.command) = 
 # 49 "pfx/basic/parser.mly"
              ( Operate Mul )
-# 196 "pfx/basic/parser.ml"
+# 204 "pfx/basic/parser.ml"
      in
     _menhir_goto_command _menhir_env _menhir_stack _menhir_s _v
 
@@ -203,7 +211,7 @@ and _menhir_run7 : _menhir_env -> 'ttv_tail -> _menhir_state -> 'ttv_return =
     let _v : (Ast.command) = 
 # 51 "pfx/basic/parser.mly"
              ( Operate Mod )
-# 207 "pfx/basic/parser.ml"
+# 215 "pfx/basic/parser.ml"
      in
     _menhir_goto_command _menhir_env _menhir_stack _menhir_s _v
 
@@ -214,7 +222,7 @@ and _menhir_run8 : _menhir_env -> 'ttv_tail -> _menhir_state -> 'ttv_return =
     let _v : (Ast.command) = 
 # 50 "pfx/basic/parser.mly"
              ( Operate Div )
-# 218 "pfx/basic/parser.ml"
+# 226 "pfx/basic/parser.ml"
      in
     _menhir_goto_command _menhir_env _menhir_stack _menhir_s _v
 
@@ -225,7 +233,7 @@ and _menhir_run9 : _menhir_env -> 'ttv_tail -> _menhir_state -> 'ttv_return =
     let _v : (Ast.command) = 
 # 47 "pfx/basic/parser.mly"
              ( Operate Add )
-# 229 "pfx/basic/parser.ml"
+# 237 "pfx/basic/parser.ml"
      in
     _menhir_goto_command _menhir_env _menhir_stack _menhir_s _v
 
@@ -269,8 +277,8 @@ and program : (Lexing.lexbuf -> token) -> Lexing.lexbuf -> (Ast.program) =
             _menhir_run6 _menhir_env (Obj.magic _menhir_stack) MenhirState1
         | POP ->
             _menhir_run5 _menhir_env (Obj.magic _menhir_stack) MenhirState1
-        | PUSH ->
-            _menhir_run3 _menhir_env (Obj.magic _menhir_stack) MenhirState1
+        | PUSH _v ->
+            _menhir_run3 _menhir_env (Obj.magic _menhir_stack) MenhirState1 _v
         | SUB ->
             _menhir_run2 _menhir_env (Obj.magic _menhir_stack) MenhirState1
         | EOF ->
@@ -288,9 +296,9 @@ and program : (Lexing.lexbuf -> token) -> Lexing.lexbuf -> (Ast.program) =
 # 52 "pfx/basic/parser.mly"
   
 
-# 292 "pfx/basic/parser.ml"
+# 300 "pfx/basic/parser.ml"
 
 # 269 "<standard.mly>"
   
 
-# 297 "pfx/basic/parser.ml"
+# 305 "pfx/basic/parser.ml"

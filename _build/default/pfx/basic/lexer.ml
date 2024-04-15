@@ -1,9 +1,9 @@
 # 1 "pfx/basic/lexer.mll"
  
-  open Utils.Location
+  open Parser 
 
-  type token =
-    | PUSH of int | POP | ADD | SUB | MUL | DIV | MOD | INT of int | EOF
+  (* type token =
+    | PUSH of int | POP | ADD | SUB | MUL | DIV | MOD | INT of int | EOF *)
 
   let print_token = function
     | PUSH n -> print_string ("PUSH " ^ string_of_int n)
@@ -16,6 +16,8 @@
     | EOF -> print_string "EOF"
     | INT i -> print_int i
 
+  
+
 
   (* let mk_int nb =
     try INT (int_of_string nb)
@@ -25,16 +27,19 @@
     try PUSH (int_of_string nb)
     with Failure _ -> failwith (Printf.sprintf "Illegal push operation '%s': " nb ) *)
 
+  (* Exercice 7: Locations *)
+
   let mk_int loc nb =
     try INT (int_of_string nb)
-    with Failure _ -> raise (Error (Printf.sprintf "Illegal integer '%s': " nb, loc))
+    with Failure _ -> raise (Utils.Location.Error (Printf.sprintf "Illegal integer '%s': " nb, loc))
 
   let mk_push loc nb =
     try PUSH (int_of_string nb)
-    with Failure _ -> raise (Error (Printf.sprintf "Illegal push operation '%s': " nb, loc))
+    with Failure _ -> raise (Utils.Location.Error (Printf.sprintf "Illegal push operation '%s': " nb, loc))
+
     
 
-# 38 "pfx/basic/lexer.ml"
+# 43 "pfx/basic/lexer.ml"
 let __ocaml_lex_tables = {
   Lexing.lex_base =
    "\000\000\243\255\000\000\000\000\001\000\001\000\002\000\010\000\
@@ -223,91 +228,91 @@ let rec token lexbuf =
 and __ocaml_lex_token_rec lexbuf __ocaml_lex_state =
   match Lexing.new_engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
-# 44 "pfx/basic/lexer.mll"
-            ( token lexbuf )
-# 229 "pfx/basic/lexer.ml"
-
-  | 1 ->
-# 46 "pfx/basic/lexer.mll"
+# 50 "pfx/basic/lexer.mll"
             ( token lexbuf )
 # 234 "pfx/basic/lexer.ml"
 
-  | 2 ->
-# 48 "pfx/basic/lexer.mll"
-             ( EOF )
+  | 1 ->
+# 52 "pfx/basic/lexer.mll"
+            ( token lexbuf )
 # 239 "pfx/basic/lexer.ml"
 
-  | 3 ->
-# 50 "pfx/basic/lexer.mll"
-                            ( token lexbuf )
+  | 2 ->
+# 54 "pfx/basic/lexer.mll"
+             ( EOF )
 # 244 "pfx/basic/lexer.ml"
+
+  | 3 ->
+# 56 "pfx/basic/lexer.mll"
+                            ( token lexbuf )
+# 249 "pfx/basic/lexer.ml"
 
   | 4 ->
 let
-# 52 "pfx/basic/lexer.mll"
+# 58 "pfx/basic/lexer.mll"
               nb
-# 250 "pfx/basic/lexer.ml"
+# 255 "pfx/basic/lexer.ml"
 = Lexing.sub_lexeme lexbuf lexbuf.Lexing.lex_start_pos lexbuf.Lexing.lex_curr_pos in
-# 52 "pfx/basic/lexer.mll"
-                            ( mk_int (symbol_loc (Lexing.lexeme_start_p lexbuf) (Lexing.lexeme_end_p lexbuf)) nb )
-# 254 "pfx/basic/lexer.ml"
+# 58 "pfx/basic/lexer.mll"
+                            ( mk_int (Utils.Location.symbol_loc (Lexing.lexeme_start_p lexbuf) (Lexing.lexeme_end_p lexbuf)) nb )
+# 259 "pfx/basic/lexer.ml"
 
   | 5 ->
 let
-# 54 "pfx/basic/lexer.mll"
+# 60 "pfx/basic/lexer.mll"
                          nb
-# 260 "pfx/basic/lexer.ml"
+# 265 "pfx/basic/lexer.ml"
 = Lexing.sub_lexeme lexbuf lexbuf.Lexing.lex_mem.(0) lexbuf.Lexing.lex_curr_pos in
-# 54 "pfx/basic/lexer.mll"
-                              ( mk_push (symbol_loc (Lexing.lexeme_start_p lexbuf) (Lexing.lexeme_end_p lexbuf)) nb  )
-# 264 "pfx/basic/lexer.ml"
-
-  | 6 ->
-# 55 "pfx/basic/lexer.mll"
-              ( POP )
+# 60 "pfx/basic/lexer.mll"
+                              (mk_push (Utils.Location.symbol_loc (Lexing.lexeme_start_p lexbuf) (Lexing.lexeme_end_p lexbuf)) nb  )
 # 269 "pfx/basic/lexer.ml"
 
-  | 7 ->
-# 56 "pfx/basic/lexer.mll"
-              ( ADD )
+  | 6 ->
+# 61 "pfx/basic/lexer.mll"
+              ( POP )
 # 274 "pfx/basic/lexer.ml"
 
-  | 8 ->
-# 57 "pfx/basic/lexer.mll"
-              ( SUB )
+  | 7 ->
+# 62 "pfx/basic/lexer.mll"
+              ( ADD )
 # 279 "pfx/basic/lexer.ml"
 
-  | 9 ->
-# 58 "pfx/basic/lexer.mll"
-              ( MUL )
+  | 8 ->
+# 63 "pfx/basic/lexer.mll"
+              ( SUB )
 # 284 "pfx/basic/lexer.ml"
 
-  | 10 ->
-# 59 "pfx/basic/lexer.mll"
-              ( DIV )
+  | 9 ->
+# 64 "pfx/basic/lexer.mll"
+              ( MUL )
 # 289 "pfx/basic/lexer.ml"
 
-  | 11 ->
-# 60 "pfx/basic/lexer.mll"
-              ( MOD )
+  | 10 ->
+# 65 "pfx/basic/lexer.mll"
+              ( DIV )
 # 294 "pfx/basic/lexer.ml"
+
+  | 11 ->
+# 66 "pfx/basic/lexer.mll"
+              ( MOD )
+# 299 "pfx/basic/lexer.ml"
 
   | 12 ->
 let
-# 62 "pfx/basic/lexer.mll"
+# 68 "pfx/basic/lexer.mll"
          c
-# 300 "pfx/basic/lexer.ml"
+# 305 "pfx/basic/lexer.ml"
 = Lexing.sub_lexeme_char lexbuf lexbuf.Lexing.lex_start_pos in
-# 62 "pfx/basic/lexer.mll"
+# 68 "pfx/basic/lexer.mll"
                             ( failwith (Printf.sprintf "Illegal character '%c': " c) )
-# 304 "pfx/basic/lexer.ml"
+# 309 "pfx/basic/lexer.ml"
 
   | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf;
       __ocaml_lex_token_rec lexbuf __ocaml_lex_state
 
 ;;
 
-# 64 "pfx/basic/lexer.mll"
+# 70 "pfx/basic/lexer.mll"
  
    let rec examine_all lexbuf =
     let result = token lexbuf in
@@ -331,4 +336,4 @@ let
 
 let _ = Arg.parse [] compile ""
 
-# 335 "pfx/basic/lexer.ml"
+# 340 "pfx/basic/lexer.ml"
